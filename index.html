@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+            window.onload = function(){
+                alert('Wola :/')
+            }
+            $(document).ready(function(){
+                var p = $('p');
+                alert(p.length);
+
+                $('div#myContent').css('background-color', 'Green');
+                $('p.shiet').css('font-size', '3em');
+                alert($('.shiet').html());
+
+                var div = $('div[title="Contains shiet"]');
+                alert(div.length);
+
+                alert($('div:contains("shiet")').html());
+                
+                $('div.rawBox').attr(
+                  {
+                      title: 'Some Title',
+                      style: 'font-size: 50px;'
+                  }                  
+                )
+                .css('background-color','purple')
+                .css({
+                    'background-color':'yellow'
+                });
+
+                $('SubmitButton2').click(function(){
+                    $.get('page2.html', function(data){
+                        $('#divBtn2').html(data);
+                    });
+                });
+
+                WireEvents();
+                HoverShiet();
+            });
+
+            //click event
+            function WireEvents(){
+                $('#SubmitButton').click(function(){
+                    alert('Milonga pa mi argentina, milonga bajo la luna!!')
+                });
+            }
+
+            //using hover
+            
+            function HoverShiet(){
+                $('#dead').hover(
+                    function(){
+                        $(this).css('color','white');
+                    },
+                    function(){
+                        $(this).css('color','black');
+                    }
+                );
+            }
+
+            //this hover ToggleClass is for tables
+            /*
+            function HoverShiet(){
+                $('#dead').hover(
+                    function(){
+                        $(this).toggleClass('LightHighlight');
+                });
+            }*/
+        </script>
+    </head>
+    <body>
+        <div id="myContent">
+            My jQuery enabled page :3
+        </div>
+        <div title="Contains shiet">
+            <p class="shiet">shiet</p>
+            <p>dang</p>
+            <p>i'm done</p>
+        </div>
+        <div class="rawBox">
+            <h1 id="dead">WHAT'S THE SENSE OF LIFE?</h1>
+        </div>
+        <div>
+            <input id="SubmitButton" type="button" value="Submit"/>
+        </div>
+        <div>
+            <input id="SubmitButton2" type="button" value="Submit"/>
+        </div>
+        <div id="divBtn2">sd</div>
+        <div>
+            <input id="SubmitButton3" type="button" value="Submit"/>
+        </div>
+        <div id="divBtn3"></div>
+        <script type="text/javascript">
+        /*
+            var button = document.getElementById('SubmitButton');
+            if(document.addEventListener){
+                button.addEventListener('click', function(){alert('Life has NO sense');},false);
+            }
+            else{
+                button.attachEvent('onclick',function(){alert('Cliked IE Button');});
+            }
+        */
+        </script>
+    </body>
+</html>
